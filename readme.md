@@ -59,7 +59,7 @@ También hemos creado el reloj para que te centres en la parte de JavaScript de 
 <br/>
 
 <details>
-  <summary> Haga clic aquí para ver la imagen</summary></details>
+  <summary> Haga clic aquí para ver la imagen</summary>
 
 <br/>
 
@@ -205,7 +205,7 @@ Puedes invocar el método start de tu cronómetro.
 Sugerencia: si lo recuerdas, el método start espera un callback como argumento y ejecutará este callback cada segundo (puedes pasar como argumento una función para actualizar la interfaz de usuario)
 
 <details>
-  <summary> Haga clic aquí para ver la imagen </summary></details>
+  <summary> Haga clic aquí para ver la imagen </summary>
 
 <br/>
 
@@ -228,7 +228,7 @@ Una vez que hemos localizado la lista ordenada en nuestro HTML, tenemos que crea
 Por lo tanto, primero debemos crear un elemento de la lista cada vez que hagamos clic en el botón.Después, debemos añadir un nombre de clase a este elemento de la lista ('list-item').Luego debemos actualizar el innerHTML con el resultado de nuestro método `splitin` chronometer. Y finalmente debemos anexarlo al elemento padre en el archivo html (la lista ordenada con `id`s de `splits`)
 
 <details>
-  <summary> Haga clic aquí para ver la imagen </summary></details>
+  <summary> Haga clic aquí para ver la imagen </summary>
 
 <br/>
 
