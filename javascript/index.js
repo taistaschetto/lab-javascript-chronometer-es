@@ -13,8 +13,43 @@ const milDecElement = document.getElementById('milDec');
 const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
+function setStartBtn() {
+  btnLeftElement.className = 'btn start';
+  btnLeftElement.innerHTML = 'START';
+}
+
+function setStopBtn() {
+  btnLeftElement.className = 'btn stop';
+  btnLeftElement.innerHTML = 'STOP';
+}
+
+function setResetBtn() {
+  btnRightElement.className = 'btn reset';
+  btnRightElement.innerHTML = 'RESET';
+}
+
+function setSplitBtn() {
+  btnRightElement.className = 'btn split';
+  btnRightElement.innerHTML = 'SPLIT';
+}
+
+btnLeftElement.addEventListener('click', () => {
+  if (btnLeftElement.classList.contains('start')) {
+    chronometer.start(printTime);
+    setStopBtn();
+    setSplitBtn();
+  } else {
+    chronometer.stop();
+    setStartBtn();
+    setResetBtn();
+  }
+});
+
 function printTime() {
-  // ... your code goes here
+  minDecElement.innerHTML = chronometer.computeTwoDigitNumber(chronometer.getMinutes())[0]
+  minUniElement.innerHTML = chronometer.computeTwoDigitNumber(chronometer.getMinutes())[1]
+  secDecElement.innerHTML = chronometer.computeTwoDigitNumber(chronometer.getMinutes())[0]
+  secUniElement.innerHTML = chronometer.computeTwoDigitNumber(chronometer.getMinutes())[1]
 }
 
 function printMinutes() {
