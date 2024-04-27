@@ -5,24 +5,33 @@ class Chronometer {
   }
 
   start(callback) {
+    let startTime = Date.now();
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+
     this.intervalId = setInterval(() => {
-      this.currentTime += 1;
+      let elapsedTime = Date.now() - startTime;
+      this.currentTime = elapsedTime;
       if (callback) {
         callback();
       }
-    }, 1000);
+    }, 1);
   }
 
   getMinutes() {
-    return Math.floor(this.currentTime / 60);
+    return Math.floor(this.currentTime / 60000);
   }
 
   getSeconds() {
-    return this.currentTime % 60;
+    return Math.floor((this.currentTime % 60000) / 1000);
   }
 
+  getMilliseconds() {
+    return Math.floor(this.currentTime % 1000 /10)
+  }
   computeTwoDigitNumber(value) {
-    return `${value}`.padStart(2, 0);
+    return `${value}`.padStart(2, '0');
   }
 
   stop() {
@@ -44,8 +53,15 @@ class Chronometer {
   split() {
     const minutes = this.computeTwoDigitNumber(this.getMinutes());
     const seconds = this.computeTwoDigitNumber(this.getSeconds());
-    return `${minutes}:${seconds}`;
+    const milliseconds = this.computeTwoDigitNumber(this.getMilliseconds());
+    return `${minutes}:${seconds}:${milliseconds}`; 
   }
+  // split() {
+  //   const minutes = this.computeTwoDigitNumber(this.getMinutes());
+  //   const seconds = this.computeTwoDigitNumber(this.getSeconds());
+  //   const milliseconds = this.computeTwoDigitNumber(this.getMilliseconds());
+  //   return `${minutes}:${seconds}:${milliseconds}`;
+  // }
 }
 
 // The following is required to make unit tests work.
